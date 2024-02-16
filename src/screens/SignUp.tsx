@@ -5,7 +5,7 @@ import BackgroundImg from "@assets/background.png";
 import { Input } from "@components/Input";
 import { Button } from "@components/Button";
 
-export const SignIn = () => {
+export const SignUp = () => {
   return (
     <ScrollView
       contentContainerStyle={{
@@ -20,7 +20,7 @@ export const SignIn = () => {
           resizeMode="contain"
           position="absolute"
         />
-        <Center my={24}>
+        <Center my={16}>
           <LogoSvg />
           <Text color="gray.100" fontSize="sm">
             Treine sua mente e o seu corpo
@@ -28,9 +28,11 @@ export const SignIn = () => {
         </Center>
 
         <Center>
-          <Heading color="gray.100" fontSize="xl" fontFamily="heading" mb={6}>
-            Acesse sua conta
+          <Heading color="gray.100" fontSize="xl" fontFamily="heading" mb={4}>
+            Crie sua conta
           </Heading>
+
+          <Input placeholder="Nome" autoCapitalize="words" />
 
           <Input
             placeholder="E-mail"
@@ -39,15 +41,10 @@ export const SignIn = () => {
           />
           <Input placeholder="Senha" secureTextEntry />
 
-          <Button title="Acessar" />
+          <Button title="Criar e acessar" />
         </Center>
 
-        <Center mt={12}>
-          <Text color="gray.100" fontSize="sm" fontFamily="body" mb={3}>
-            Ainda não tem acesso?
-          </Text>
-        </Center>
-        <Button title="Criar conta" variant="outline" />
+        <Button title="Voltar para o login" variant="outline" mt={20} />
       </VStack>
     </ScrollView>
   );
