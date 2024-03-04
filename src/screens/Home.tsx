@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Center, HStack, Text, VStack, FlatList, Heading } from "native-base";
 import { HomeHeader } from "@components/HomeHeader";
 import { Group } from "@components/Group";
+import { ExerciseCard } from "@components/ExerciseCard";
 
 export const Home: React.FC = () => {
   const [groups, setGroups] = useState<string[]>([
@@ -10,6 +11,12 @@ export const Home: React.FC = () => {
     "bíceps",
     "peito",
     "tríceps",
+  ]);
+  const [exercises, setExercises] = useState<string[]>([
+    "Puxada Frontal",
+    "Remada Unilateral",
+    "Remada Curvada",
+    "Bíceps Rosca",
   ]);
   const [groupSelected, setGroupSelected] = useState<string>("costas");
 
@@ -43,9 +50,19 @@ export const Home: React.FC = () => {
           </Heading>
 
           <Text color="gray.200" fontSize="sm">
-            {groups.length}
+            {exercises.length}
           </Text>
         </HStack>
+
+        <FlatList
+          data={exercises}
+          keyExtractor={(item) => item}
+          renderItem={({ item }) => <ExerciseCard />}
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{
+            paddingBottom: 20,
+          }}
+        />
       </VStack>
     </VStack>
   );
